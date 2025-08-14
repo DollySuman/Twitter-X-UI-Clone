@@ -7,6 +7,10 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-700: oklch(50.5% 0.213 27.518);
+    --color-red-800: oklch(44.4% 0.177 26.899);
+    --color-green-400: oklch(79.2% 0.209 151.711);
+    --color-green-500: oklch(72.3% 0.219 149.579);
     --color-blue-700: oklch(48.8% 0.243 264.376);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-500: oklch(55.1% 0.027 264.364);
@@ -26,7 +30,6 @@
     --text-3xl--line-height: calc(2.25 / 1.875);
     --font-weight-bold: 700;
     --radius-xl: 0.75rem;
-    --radius-2xl: 1rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -180,6 +183,9 @@
   .absolute {
     position: absolute;
   }
+  .fixed {
+    position: fixed;
+  }
   .relative {
     position: relative;
   }
@@ -191,6 +197,12 @@
   }
   .top-\[50vh\] {
     top: 50vh;
+  }
+  .top-\[55vh\] {
+    top: 55vh;
+  }
+  .top-\[58vh\] {
+    top: 58vh;
   }
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
@@ -237,12 +249,6 @@
   .mx-3 {
     margin-inline: calc(var(--spacing) * 3);
   }
-  .mx-10 {
-    margin-inline: calc(var(--spacing) * 10);
-  }
-  .mx-16 {
-    margin-inline: calc(var(--spacing) * 16);
-  }
   .mx-auto {
     margin-inline: auto;
   }
@@ -279,17 +285,32 @@
   .h-8 {
     height: calc(var(--spacing) * 8);
   }
+  .h-10 {
+    height: calc(var(--spacing) * 10);
+  }
+  .h-15 {
+    height: calc(var(--spacing) * 15);
+  }
+  .h-16 {
+    height: calc(var(--spacing) * 16);
+  }
   .h-\[0\.2px\] {
     height: 0.2px;
   }
   .h-\[1px\] {
     height: 1px;
   }
+  .h-\[50vh\] {
+    height: 50vh;
+  }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
+  }
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
-  .w-2 {
-    width: calc(var(--spacing) * 2);
+  .w-6 {
+    width: calc(var(--spacing) * 6);
   }
   .w-8 {
     width: calc(var(--spacing) * 8);
@@ -297,14 +318,26 @@
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
+  .w-14 {
+    width: calc(var(--spacing) * 14);
+  }
+  .w-15 {
+    width: calc(var(--spacing) * 15);
+  }
   .w-16 {
     width: calc(var(--spacing) * 16);
   }
-  .w-25 {
-    width: calc(var(--spacing) * 25);
+  .w-60 {
+    width: calc(var(--spacing) * 60);
   }
   .w-100 {
     width: calc(var(--spacing) * 100);
+  }
+  .w-\[65\%\] {
+    width: 65%;
+  }
+  .w-\[65\] {
+    width: 65;
   }
   .w-\[90\%\] {
     width: 90%;
@@ -396,6 +429,15 @@
   .bg-gray-600 {
     background-color: var(--color-gray-600);
   }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .fill-red-800 {
+    fill: var(--color-red-800);
+  }
+  .p-1 {
+    padding: calc(var(--spacing) * 1);
+  }
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
@@ -455,6 +497,9 @@
   .text-\[\#1e98ed\] {
     color: #1e98ed;
   }
+  .text-black {
+    color: var(--color-black);
+  }
   .text-blue-700 {
     color: var(--color-blue-700);
   }
@@ -495,6 +540,13 @@
       }
     }
   }
+  .hover\:bg-gray-200 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-200);
+      }
+    }
+  }
   .hover\:bg-gray-800 {
     &:hover {
       @media (hover: hover) {
@@ -509,6 +561,41 @@
       }
     }
   }
+  .hover\:text-\[\#1e98ed\] {
+    &:hover {
+      @media (hover: hover) {
+        color: #1e98ed;
+      }
+    }
+  }
+  .hover\:text-green-400 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-green-400);
+      }
+    }
+  }
+  .hover\:text-green-500 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-green-500);
+      }
+    }
+  }
+  .hover\:text-red-700 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-red-700);
+      }
+    }
+  }
+  .hover\:text-red-800 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-red-800);
+      }
+    }
+  }
   .hover\:underline {
     &:hover {
       @media (hover: hover) {
@@ -516,9 +603,9 @@
       }
     }
   }
-  .md\:mx-10 {
+  .md\:sticky {
     @media (width >= 48rem) {
-      margin-inline: calc(var(--spacing) * 10);
+      position: sticky;
     }
   }
   .md\:mx-16 {
